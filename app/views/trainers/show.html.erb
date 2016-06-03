@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome, <%=@trainer.name %> </h1>
+     <img src="<%=@trainer.avatar%>" alt="" class="circle">
+     <h3>Bio:</h3>
+      <h4 id='trainer-bio'>@trainer.bio</h4>
+      <h4 id='trainer-member-info'>@trainer.created_at</h4>
+      <b>
+      <h3> Social Media:</h3>
+      <h4>Twitter: <a href="www.twitter.com/#{@trainer.twitter_username}"> <%= @trainer.twitter_username %> </a></h5>
+  </body>
+</html>

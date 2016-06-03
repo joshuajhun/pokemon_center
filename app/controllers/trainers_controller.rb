@@ -13,7 +13,7 @@ class TrainersController < ApplicationController
   end
 
   def show
-    @trainer = Trainer.find[params[:id]]
+    @trainer = Trainer.find(params[:id])
   end
 
 

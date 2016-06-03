@@ -1,17 +1,35 @@
-<%= form_for(Trainer.new) do |f| %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="row">
+        <div class="col s12">
+          <div class="input field col s6 offset-s3">
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+            <h1>Trainer Registration</h1>
+            <br>
+          <%= form_for(Trainer.new) do |f| %>
 
-<%= f.label :twitter_username %>
-<%= f.text_field :twitter_username %>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
 
-<%= f.label :avatar %>
-<%= f.text_field :avatar %>
+          <%= f.label :twitter_username %>
+          <%= f.text_field :twitter_username %>
 
-<%= f.label :bio %>
-<%= f.text_field :bio %>
+          <%= f.label :avatar %>
+          <%= f.text_field :avatar %>
 
-<%= f.submit %>
+          <%= f.label :bio %>
+          <%= f.text_area :bio, cols: %>
 
-<% end %>
+          <%= f.submit %>
+
+          <% end %>
+        </div>
+        </div>
+    </div>
+  </body>
+</html>
