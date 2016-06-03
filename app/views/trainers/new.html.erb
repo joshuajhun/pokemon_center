@@ -1,0 +1,17 @@
+<%= form_for(Trainer.new) do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :twitter_username %>
+<%= f.text_field :twitter_username %>
+
+<%= f.label :avatar %>
+<%= f.text_field :avatar %>
+
+<%= f.label :bio %>
+<%= f.text_field :bio %>
+
+<%= f.submit %>
+
+<% end %>
