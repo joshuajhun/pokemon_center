@@ -6,12 +6,27 @@
   </head>
   <body>
     <h1>Welcome, <%=@trainer.name %> </h1>
-     <img src="<%=@trainer.avatar%>" alt="" class="circle">
-     <h3>Bio:</h3>
-      <h4 id='trainer-bio'>@trainer.bio</h4>
-      <h4 id='trainer-member-info'>@trainer.created_at</h4>
+    <% if @trainer.avatar.present? %>
+    <img src="<%=@trainer.avatar  %>" class='square' id='avatar'/>
+      <%else %>
+      <img src="/assets/blank_photo.jpg" class='square' id='avatar'>
+      <% end %>
+     <div class="col s6 offset-s3">
+     <h4>Bio:</h4>
+     <% if @trainer.bio.present? %>
+      <h6 id='trainer-bio'><%=@trainer.bio%></h6>
+      <% else %>
+      <h6>None Given</h6>
+      <% end %>
+
+      <h6 id='trainer-member-info'> <%= @trainer.name %> has been a member since <%=@trainer.created_at.strftime("%b. %Y")%></h6>
       <b>
-      <h3> Social Media:</h3>
-      <h4>Twitter: <a href="www.twitter.com/#{@trainer.twitter_username}"> <%= @trainer.twitter_username %> </a></h5>
+      <h4> Social Media:</h4>
+      <% if @trainer.twitter_username.present? %>
+      <h6>Twitter: <a href="http://www.twitter.com/@trainer.twitter_username"> <%= @trainer.twitter_username %> </a></h6>
+      <% else  %>
+      <h6> none given</h6>
+      <% end %>
+    </div>
   </body>
 </html>
