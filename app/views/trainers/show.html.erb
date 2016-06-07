@@ -27,7 +27,7 @@
                 <b>
                 <h4>Twitter:</h4>
                 <% if @trainer.twitter_username.present? %>
-                  <h6> <a href="http://www.twitter.com/@trainer.twitter_username"> <%= @trainer.twitter_username %></a></h6>
+                  <h6><%= link_to @trainer.twitter_username,"http://www.twitter.com/#{@trainer.twitter_username}" %></h6>
                 <% else  %>
                   <h6> None Given</h6>
                 <% end %>
