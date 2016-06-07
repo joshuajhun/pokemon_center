@@ -23,4 +23,8 @@ class TrainerPresenter < BasePresenter
      "None Given"
    end
   end
+
+  def member_info
+    "#{trainer.name}  has been a member since #{trainer.created_at.strftime("%b. %Y")}"
+  end
 end
