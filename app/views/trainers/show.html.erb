@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
   <body>
-    <h1>Welcome, <%=@trainer.name %> </h1>
-    <% if @trainer.avatar.present? %>
-    <img src="<%=@trainer.avatar  %>" class='square' id='avatar'/>
-      <%else %>
-      <img src="/assets/blank_photo.jpg" class='square' id='avatar'>
-      <% end %>
-     <div class="col s6 offset-s3">
-     <h4>Bio:</h4>
-     <% if @trainer.bio.present? %>
-      <h6 id='trainer-bio'><%=@trainer.bio%></h6>
-      <% else %>
-      <h6>None Given</h6>
-      <% end %>
-
-      <h6 id='trainer-member-info'> <%= @trainer.name %> has been a member since <%=@trainer.created_at.strftime("%b. %Y")%></h6>
-      <b>
-      <h4> Social Media:</h4>
-      <% if @trainer.twitter_username.present? %>
-      <h6>Twitter: <a href="http://www.twitter.com/@trainer.twitter_username"> <%= @trainer.twitter_username %> </a></h6>
-      <% else  %>
-      <h6> none given</h6>
-      <% end %>
-    </div>
-  </body>
-</html>
+    <div class="row">
+      <div class="col s12">
+        <div class="offset col s12 offset-s3">
+          <div class="col 6 s6">
+            <h1>Welcome, <%=@trainer.name %> </h1>
+              <% if @trainer.avatar.present? %>
+                <%=image_tag(@trainer.avatar, class: 'square', id: 'avatar')%>
+              <%else %>
+                <%= image_tag('blank_photo.jpg', class: 'square', id: 'avatar') %>
+              <% end %>
+            <div class="col 6 offset s6">
+              <h4>Bio:</h4>
+              <% if @trainer.bio.present? %>
+                <h6 id='trainer-bio'><%=@trainer.bio%></h6>
+              <% else %>
+                <h6>None Given</h6>
+              <% end %>
+              <h4>Membership Info</h4>
+              <h6 id='trainer-member-info'> <%= @trainer.name %> has been a member since <%=@trainer.created_at.strftime("%b. %Y")%></h6>
+                <b>
+                <h4>Twitter:</h4>
+                <% if @trainer.twitter_username.present? %>
+                  <h6> <a href="http://www.twitter.com/@trainer.twitter_username"> <%= @trainer.twitter_username %></a></h6>
+                <% else  %>
+                  <h6> None Given</h6>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
