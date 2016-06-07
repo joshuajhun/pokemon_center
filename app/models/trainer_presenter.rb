@@ -24,7 +24,7 @@ class TrainerPresenter < BasePresenter
    end
   end
 
-  def member_info
+  def trainer_info
     "#{trainer.name}  has been a member since #{trainer.created_at.strftime("%b. %Y")}"
   end
 end
