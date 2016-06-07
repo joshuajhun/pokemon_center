@@ -10,26 +10,16 @@
         <div class="offset col s12 offset-s3">
           <div class="col 6 s6">
             <h1>Welcome, <%=@trainer.name %> </h1>
-              <% if @trainer.avatar.present? %>
-                <%=image_tag(@trainer.avatar, class: 'square', id: 'avatar')%>
-              <%else %>
-                <%= image_tag('blank_photo.jpg', class: 'square', id: 'avatar') %>
-              <% end %>
+            <% present @trainer do |trainer_presenter| %>
+            <%= trainer_presenter.avatar %>
             <div class="col 6 offset s6">
               <h4>Bio:</h4>
-              <% if @trainer.bio.present? %>
-                <h6 id='trainer-bio'><%=@trainer.bio%></h6>
-              <% else %>
-                <h6>None Given</h6>
-              <% end %>
+              <%= trainer_presenter.bio  %>
               <h4>Membership Info</h4>
               <h6 id='trainer-member-info'> <%= @trainer.name %> has been a member since <%=@trainer.created_at.strftime("%b. %Y")%></h6>
                 <b>
                 <h4>Twitter:</h4>
-                <% if @trainer.twitter_username.present? %>
-                  <h6><%= link_to @trainer.twitter_username,"http://www.twitter.com/#{@trainer.twitter_username}" %></h6>
-                <% else  %>
-                  <h6> None Given</h6>
+                <%=trainer_presenter.twitter_info %>
                 <% end %>
               </div>
             </div>
